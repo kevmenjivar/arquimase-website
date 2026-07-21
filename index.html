@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0364A2" />
+    <meta name="description" content="Arquitectura, construcción, plantas de tratamiento y remodelación con Arquimase." />
+    <title>Arquimase | Construimos lo que imaginas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="portfolio.css" />
+  </head>
+  <body>
+    <header class="site-header" id="inicio">
+      <a class="brand" href="#inicio" aria-label="Arquimase, inicio"><img src="assets/arquimase-logo.png" alt="Arquimase" /></a>
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i></button>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#especialidades">Especialidades</a><a href="#proyectos">Proyectos</a><a href="#clientes">Clientes</a>
+        <a class="button button-small" href="#contacto">Cotizar <span>↗</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Arquitectura · Construcción · Mantenimiento</p>
+          <h1>Construimos<br /><em>lo que imaginas.</em></h1>
+          <p class="hero-text">Soluciones completas para proyectos turísticos, plantas de tratamiento, construcción y remodelación.</p>
+          <div class="hero-actions"><a class="button" href="#contacto">Cuéntanos tu proyecto <span>↗</span></a><a class="text-link" href="#proyectos">Ver portafolio <span>↓</span></a></div>
+        </div>
+        <div class="hero-art reveal delay-1" data-site-image="hero" aria-label="Detalle arquitectónico contemporáneo"><div class="sun"></div><div class="building"><div class="window w1"></div><div class="window w2"></div><div class="window w3"></div></div><div class="hero-caption">ARQUIMASE / SV<br />CONSTRUIR CON CONFIANZA</div></div>
+      </section>
+
+      <section class="intro section" id="nosotros">
+        <p class="eyebrow">Una ejecución que responde</p>
+        <div class="intro-grid"><h2 class="reveal">Ideas sólidas,<br /><em>resultados duraderos.</em></h2><div class="reveal delay-1"><p>Integramos diseño, ingeniería, construcción y mantenimiento para que cada etapa de tu proyecto avance con orden, calidad y una sola visión.</p><a class="text-link" href="#contacto">Hablar con Arquimase <span>↗</span></a></div></div>
+      </section>
+
+      <section class="services section" id="especialidades">
+        <div class="section-heading"><p class="eyebrow">Nuestras especialidades</p><span>01</span></div>
+        <div class="service-list">
+          <article class="service reveal"><span>01</span><div><p class="service-label">Turismo</p><h3>Espacios para<br />vivir experiencias.</h3></div><p>Creamos casas vacacionales, Airbnb, clubs, resorts, fincas y complejos turísticos que conectan operación, paisaje y experiencia.</p><button class="service-open" data-service="Proyecto turístico" aria-label="Cotizar proyecto turístico">↗</button></article>
+          <article class="service featured reveal"><span>02</span><div><p class="service-label">Nicho principal · Especialistas</p><h3>Plantas de<br />tratamiento.</h3></div><p>Construcción, instalación y mantenimiento de plantas para centros comerciales, bodegas, complejos turísticos y urbanizaciones.</p><button class="service-open" data-service="Planta de tratamiento" aria-label="Cotizar planta de tratamiento">↗</button></article>
+          <article class="service reveal"><span>03</span><div><p class="service-label">Remodelación</p><h3>Renovamos<br />lo esencial.</h3></div><p>Diseño, remodelación y construcción de espacios para actualizar su funcionalidad, imagen y valor a largo plazo.</p><button class="service-open" data-service="Remodelación y construcción" aria-label="Cotizar remodelación">↗</button></article>
+        </div>
+      </section>
+
+      <section class="projects section" id="proyectos">
+        <div class="section-heading"><p class="eyebrow">Portafolio de proyectos</p><span>02</span></div>
+        <div class="portfolio-intro"><h2>Trabajo que habla<br /><em>por sí mismo.</em></h2><p>Esta sección está lista para cargar fotos, categoría, ubicación y descripción de cada proyecto.</p></div>
+        <div class="project-filters" role="group" aria-label="Filtrar proyectos"><button class="active" data-filter="all">Todos</button><button data-filter="turismo">Turismo</button><button data-filter="tratamiento">Plantas de tratamiento</button><button data-filter="remodelacion">Remodelación</button></div>
+        <div id="project-grid" class="project-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="clients section" id="clientes">
+        <div class="section-heading"><p class="eyebrow">Nuestros clientes</p><span>03</span></div>
+        <div class="clients-copy"><h2>Alianzas que<br /><em>construyen futuro.</em></h2><p>Agrega los logos de las empresas, desarrollos e instituciones que han confiado en Arquimase.</p></div>
+        <div class="client-grid" aria-label="Espacios para logos de clientes">
+          <div class="client-logo">TU LOGO</div><div class="client-logo">TU LOGO</div><div class="client-logo">TU LOGO</div><div class="client-logo">TU LOGO</div><div class="client-logo">TU LOGO</div><div class="client-logo">TU LOGO</div>
+        </div>
+      </section>
+
+      <section class="stats"><div><strong>12</strong><span>Años construyendo</span></div><div><strong>86</strong><span>Proyectos terminados</span></div><div><strong>18</strong><span>Especialistas Arquimase</span></div><div><strong>4.9</strong><span>Satisfacción promedio</span></div></section>
+
+      <section class="contact section" id="contacto">
+        <p class="eyebrow">Hablemos de tu proyecto</p><h2>Tu siguiente paso<br />empieza <em>aquí.</em></h2>
+        <form id="contact-form" class="contact-form"><label>Nombre<input required name="name" placeholder="¿Cómo te llamas?" /></label><label>Correo<input required type="email" name="email" placeholder="tu@correo.com" /></label><label>Tipo de proyecto<select name="service"><option value="">Selecciona una especialidad</option><option>Proyecto turístico</option><option>Planta de tratamiento</option><option>Remodelación y construcción</option></select></label><label>Cuéntanos<input name="message" placeholder="¿Qué tienes en mente?" /></label><button class="button" type="submit">Enviar solicitud <span>↗</span></button><p class="form-message" role="status"></p></form>
+      </section>
+    </main>
+    <footer><a class="brand" href="#inicio"><img src="assets/arquimase-logo.png" alt="Arquimase" /></a><p>Construimos lo que imaginas.</p><div><a href="#inicio">Instagram</a><a href="#inicio">LinkedIn</a><span>© 2026 Arquimase</span></div></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
