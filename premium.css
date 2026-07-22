@@ -101,6 +101,7 @@ footer .brand img { width: 188px !important; height: 92px !important; }
   footer .brand img { width: 212px !important; height: 102px !important; }
   .nav { font-size: 15px; }
   .button { font-size: 14px; }
+  .project-filters button { font-size: 14px !important; padding: 12px 17px !important; }
   .eyebrow, .project-type { font-size: 15px !important; }
   .service-label { font-size: 14px !important; }
   .hero-text { font-size: 17px; }
