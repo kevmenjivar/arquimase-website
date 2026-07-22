@@ -27,7 +27,7 @@ function renderProjects(filter = 'all') {
     </article>`).join('');
 }
 async function loadBackendContent() {
-  try { const content = await (await fetch('/api/content')).json(); window.arquimaseProjects = content.projects?.length ? content.projects : projects; const grid=document.querySelector('.client-grid'); if(content.clients?.length)grid.innerHTML=content.clients.map(c=>`<div class="client-logo"><img src="${c.logo}" alt="${c.name}"></div>`).join(''); const hero=document.querySelector('[data-site-image="hero"]'); if(content.siteImages?.hero)hero.style.backgroundImage=`url('${content.siteImages.hero}')`; } catch {} renderProjects();
+  try { const content = await (await fetch('/api/content')).json(); window.arquimaseProjects = content.projects?.length ? content.projects : projects; const grid=document.querySelector('.client-grid'); if(content.clients?.length)grid.innerHTML=content.clients.map(c=>`<div class="client-logo"><img src="${c.logo}" alt="${c.name}"></div>`).join(''); const hero=document.querySelector('[data-site-image="hero"]'); if(content.siteImages?.hero){hero.style.backgroundImage=`url('${content.siteImages.hero}')`;hero.classList.add('has-custom-image');} } catch {} renderProjects();
 }
 loadBackendContent();
 

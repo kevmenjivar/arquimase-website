@@ -11,6 +11,13 @@ body { color: var(--carbon); font-family: "Open Sans", Arial, sans-serif; }
 h1, h2, h3, h4, .button, .nav, .project-more { font-family: Montserrat, Arial, sans-serif; }
 
 .site-header { border-radius: 0 0 22px 22px; }
+.hero-art.has-custom-image { background-position: center; background-size: cover; }
+.hero-art.has-custom-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, rgba(15,76,129,.24), rgba(15,76,129,.04)); }
+.hero-art.has-custom-image .sun, .hero-art.has-custom-image .building, .hero-art.has-custom-image .hero-caption { display: none; }
+.site-header { height: 92px; }
+.brand img { width: 162px !important; height: 76px !important; }
+footer .brand img { width: 172px !important; height: 82px !important; }
+.nav { top: 91px; }
 .button, .button-small, .project-filters button, .carousel-controls button {
   border-radius: 999px !important;
 }
@@ -89,6 +96,9 @@ h1, h2, h3, h4, .button, .nav, .project-more { font-family: Montserrat, Arial, s
 .modal-hero, .modal-comparison img { border-radius: 14px !important; }
 
 @media (min-width: 760px) {
+  .site-header { height: 106px; }
+  .brand img { width: 194px !important; height: 88px !important; }
+  footer .brand img { width: 190px !important; height: 88px !important; }
   .hero h1 { font-size: clamp(5.2rem, 7.25vw, 8.7rem) !important; }
   .intro h2, .portfolio-intro h2, .clients-copy h2, .contact h2 { font-size: clamp(3.2rem, 4.6vw, 5.5rem) !important; }
   .hero-text, .intro-grid > div > p, .portfolio-intro > p, .clients-copy > p, .contact-form { font-size: 1.09rem; }
