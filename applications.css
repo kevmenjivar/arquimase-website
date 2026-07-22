@@ -1,0 +1,26 @@
+.services { display: none !important; }
+.applications { background: linear-gradient(135deg, #0b3b65, #0f4c81 56%, #176fbd); color: #fff; }
+.application-heading .eyebrow { color: #fff !important; }
+.application-heading span { color: #dcefff !important; }
+.applications-intro { margin: 30px 0 26px; }
+.applications-intro h2 { margin: 0; color: #fff; font: 800 clamp(2.65rem, 11vw, 4.4rem)/.94 Montserrat, Arial, sans-serif; letter-spacing: -.07em; }
+.applications-intro h2 em { color: #8fd2ff; font-weight: 600; }
+.applications-intro > p { max-width: 540px; margin: 17px 0 0; color: #dbeeff; font-size: 15px; line-height: 1.7; }
+.application-tabs { display: flex; gap: 10px; overflow-x: auto; padding: 3px 0 15px; border-bottom: 1px solid rgba(255,255,255,.33); }
+.application-tabs button { flex: 0 0 auto; border: 1px solid rgba(255,255,255,.36); border-radius: 999px; padding: 11px 16px; background: rgba(255,255,255,.08); color: #e5f4ff; font: 700 12px Montserrat, Arial, sans-serif; cursor: pointer; transition: background .2s ease, color .2s ease, transform .2s ease, border-color .2s ease; }
+.application-tabs button:hover, .application-tabs button.active { border-color: #1b7fd4; background: #1b7fd4; color: #fff; transform: translateY(-2px); }
+.application-panel { margin-top: 24px; padding: 0; border: 0; background: transparent; box-shadow: none; animation: application-in .24s ease; }
+.application-panel[hidden] { display: none; }
+.application-summary { padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,.3); }
+.application-summary .eyebrow { color: #9bd7ff !important; }
+.application-summary h3 { margin: 5px 0 11px; color: #fff; font: 800 2rem/.98 Montserrat, Arial, sans-serif; letter-spacing: -.06em; }
+.application-summary > p:last-child { margin: 0; max-width: 550px; color: #dbeeff; line-height: 1.65; }
+.application-grid { display: grid; gap: 12px; margin-top: 20px; }
+.application-grid section { min-height: 220px; padding: 21px; border: 1px solid rgba(255,255,255,.26); border-radius: 20px; background: rgba(214,236,251,.15); box-shadow: 0 16px 28px rgba(0,0,0,.13); backdrop-filter: blur(7px); transition: transform .28s ease, background .28s ease, box-shadow .28s ease; }
+.application-grid section:hover { background: rgba(255,255,255,.2); box-shadow: 0 25px 40px rgba(0,0,0,.18); transform: translateY(-7px); }
+.application-grid h4 { margin: 0 0 16px; color: #fff; font: 800 1.18rem Montserrat, Arial, sans-serif; }
+.application-grid ul { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.application-grid li { position: relative; padding-left: 17px; color: #e0f0fb; line-height: 1.4; }
+.application-grid li::before { content: ""; position: absolute; top: .52em; left: 0; width: 7px; height: 7px; border-radius: 50%; background: #1b7fd4; box-shadow: 0 0 0 3px rgba(27,127,212,.18); }
+@keyframes application-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (min-width: 760px) { .applications-intro { display: flex; align-items: end; justify-content: space-between; gap: 9vw; margin: 44px 0 30px; } .applications-intro h2 { font-size: clamp(3.4rem, 5.1vw, 5.7rem); } .applications-intro > p { margin: 0; font-size: 17px; } .application-tabs button { padding: 13px 22px; font-size: 14px; } .application-panel { padding: 32px; } .application-summary { display: flex; align-items: end; justify-content: space-between; gap: 8vw; } .application-summary h3 { font-size: clamp(2.2rem, 3vw, 3.2rem); } .application-summary > p:last-child { max-width: 410px; font-size: 16px; } .application-grid { grid-template-columns: repeat(3, 1fr); gap: 17px; margin-top: 28px; } .application-grid section { padding: 24px; } .application-grid h4 { font-size: 1.2rem; } .application-grid li { font-size: 16px; } }

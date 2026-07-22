@@ -41,6 +41,16 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('[data-filter]').forEach(item => item.classList.toggle('active', item === button)); renderProjects(button.dataset.filter); }));
 
+document.querySelectorAll('[data-application]').forEach(button => button.addEventListener('click', () => {
+  const application = button.dataset.application;
+  document.querySelectorAll('[data-application]').forEach(item => item.classList.toggle('active', item === button));
+  document.querySelectorAll('[data-application-panel]').forEach(panel => {
+    const active = panel.dataset.applicationPanel === application;
+    panel.classList.toggle('active', active);
+    panel.hidden = !active;
+  });
+}));
+
 const modal = document.querySelector('#project-modal');
 const modalBody = document.querySelector('#modal-body');
 function openProject(index) { const project = displayedProjects[index]; if (!project) return; const image = project.image || project.coverImage || ''; const comparison = project.beforeAfter ? `<div class="modal-comparison"><figure><img src="${project.beforeAfter.before}" alt="Antes de ${project.title}"/><figcaption>Antes</figcaption></figure><figure><img src="${project.beforeAfter.after}" alt="Después de ${project.title}"/><figcaption>Después</figcaption></figure></div>${project.beforeAfter.description ? `<p class="modal-note">${project.beforeAfter.description}</p>` : ''}` : ''; const phases = project.phases?.length ? `<div class="modal-phases">${project.phases.map((phase,i)=>`<article><span>Fase ${i+1}</span><img src="${phase.image}" alt="${phase.title}"/><h4>${phase.title}</h4><p>${phase.description}</p></article>`).join('')}</div>` : ''; modalBody.innerHTML = `<img class="modal-hero" src="${image}" alt="${project.title}"/><p class="project-type">${project.type}</p><h2 id="modal-title">${project.title}</h2><p class="modal-location">${project.location || ''}</p><p class="modal-description">${project.description}</p>${comparison}${phases}`; modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.classList.add('modal-open'); }
