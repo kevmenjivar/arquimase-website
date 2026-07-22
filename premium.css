@@ -90,8 +90,11 @@ h1, h2, h3, h4, .button, .nav, .project-more { font-family: Montserrat, Arial, s
 
 @media (min-width: 760px) {
   .hero h1 { font-size: clamp(5.2rem, 7.25vw, 8.7rem) !important; }
-  .intro h2, .portfolio-intro h2, .clients-copy h2, .contact h2 { font-size: clamp(3.7rem, 5vw, 6.5rem) !important; }
+  .intro h2, .portfolio-intro h2, .clients-copy h2, .contact h2 { font-size: clamp(3.2rem, 4.6vw, 5.5rem) !important; }
   .hero-text, .intro-grid > div > p, .portfolio-intro > p, .clients-copy > p, .contact-form { font-size: 1.09rem; }
+  .eyebrow, .project-type { font-size: 13px !important; letter-spacing: .145em !important; }
+  .service-label { font-size: 12px !important; letter-spacing: .125em !important; }
+  .section-heading span { font-size: 14px !important; }
   .service h3 { font-size: clamp(1.85rem, 2.1vw, 2.7rem) !important; }
   .service-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
   .service { min-height: 390px; }
