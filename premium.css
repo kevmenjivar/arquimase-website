@@ -106,7 +106,7 @@ footer .brand img { width: 188px !important; height: 92px !important; }
   .project-filters button { font-size: 14px !important; padding: 12px 17px !important; }
   .eyebrow, .project-type { font-size: 15px !important; }
   .service-label { font-size: 14px !important; }
-  .hero-text { font-size: 17px; }
+  .hero-text { max-width: 560px; font-size: 17px; }
   .intro-grid p, .portfolio-intro p, .clients-copy p { font-size: 18px !important; }
   .service > p { font-size: 1.06rem !important; line-height: 1.55 !important; }
   .service { min-height: 420px; }
