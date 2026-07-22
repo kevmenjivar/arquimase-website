@@ -87,6 +87,8 @@ footer .brand img { width: 188px !important; height: 92px !important; }
 .project-meta h3 { color: var(--carbon); }
 .project-more { color: var(--structure-blue); }
 .project-more:hover { color: var(--arquimase-blue); }
+.project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+.project-tags span { padding: 6px 9px; border-radius: 999px; background: #e8f3fa; color: var(--structure-blue); font: 700 10px Montserrat, Arial, sans-serif; }
 
 .client-logo { border-radius: 18px !important; border-color: #d4e4ee !important; background: #fff !important; box-shadow: 0 9px 22px rgba(15, 76, 129, .07); transition: transform .25s ease, box-shadow .25s ease; }
 .client-logo:hover { transform: translateY(-5px); box-shadow: 0 18px 32px rgba(15, 76, 129, .13); }

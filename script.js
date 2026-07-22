@@ -12,17 +12,20 @@ const projects = [
 
 const projectGrid = document.querySelector('#project-grid');
 let displayedProjects = [];
+const categoryNames = { residencial: 'Residencial', comercial: 'Comercial', turistico: 'Turístico', turismo: 'Turístico', tratamiento: 'Comercial', remodelacion: 'Residencial' };
+const normalizedCategory = project => ({ turismo: 'turistico', tratamiento: 'comercial', remodelacion: 'residencial' }[project.category] || project.category);
 function renderProjects(filter = 'all') {
   const source = window.arquimaseProjects || projects;
-  const visible = filter === 'all' ? source : source.filter(project => project.category === filter);
+  const visible = filter === 'all' ? source : source.filter(project => normalizedCategory(project) === filter);
   displayedProjects = visible;
   projectGrid.innerHTML = visible.map((project, index) => `
     <article class="project reveal in-view" style="--card-delay:${index * 85}ms">
       <div class="project-image ${project.image || project.coverImage ? 'has-image' : `placeholder p${(index % 3) + 1}`}" ${project.image || project.coverImage ? `style="background-image:url('${project.image || project.coverImage}')"` : ''}>
         ${project.image || project.coverImage ? '' : '<span>Imagen del proyecto</span>'}
       </div>
-      <div class="project-meta"><div><p class="project-type">${project.type}</p><h3>${project.title}</h3></div><p class="project-location">${project.location}</p></div>
+      <div class="project-meta"><div><p class="project-type">${categoryNames[normalizedCategory(project)] || project.type}</p><h3>${project.title}</h3></div><p class="project-location">${project.location}</p></div>
       <p class="project-description">${project.description}</p>
+      <div class="project-tags">${(Array.isArray(project.tags) && project.tags.length ? project.tags : String(project.type || '').split(' · ').filter(Boolean)).map(tag => `<span>${tag}</span>`).join('')}</div>
       <button class="project-more" data-project-index="${index}">Ver caso completo <span>→</span></button>
     </article>`).join('');
 }
@@ -30,6 +33,7 @@ async function loadBackendContent() {
   try { const content = await (await fetch('/api/content')).json(); window.arquimaseProjects = content.projects?.length ? content.projects : projects; const grid=document.querySelector('.client-grid'); if(content.clients?.length)grid.innerHTML=content.clients.map(c=>`<div class="client-logo"><img src="${c.logo}" alt="${c.name}"></div>`).join(''); const hero=document.querySelector('[data-site-image="hero"]'); if(content.siteImages?.hero){hero.style.backgroundImage=`url('${content.siteImages.hero}')`;hero.classList.add('has-custom-image');} } catch {} renderProjects();
 }
 loadBackendContent();
+async function loadFooterLinks(){try{const data=await (await fetch('/api/settings')).json(),settings=data.settings||{};[['instagram','instagram_url'],['linkedin','linkedin_url'],['tiktok','tiktok_url']].forEach(([name,key])=>{const link=document.querySelector(`#social-${name}`);if(link&&settings[key])link.href=settings[key]})}catch{}}loadFooterLinks();
 
 const menu = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
