@@ -34,10 +34,17 @@ h1, h2, h3, h4, .button, .nav, .project-more { font-family: Montserrat, Arial, s
 .section-heading-strong span { color: var(--structure-blue) !important; font-weight: 800; }
 
 .services { background: linear-gradient(135deg, #0b3b65, var(--structure-blue) 58%, #126bbb); }
+.services .section-heading .eyebrow { color: #ffffff !important; opacity: .96; }
+.services .section-heading span { color: #d9efff; font-weight: 800; }
 .service-list { display: grid !important; grid-template-columns: 1fr; gap: 16px; }
 .service {
-  position: relative;
-  min-height: 278px;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 15px;
+  min-height: 302px;
   padding: 26px !important;
   border: 1px solid rgba(255,255,255,.2) !important;
   border-radius: 22px !important;
@@ -48,8 +55,11 @@ h1, h2, h3, h4, .button, .nav, .project-more { font-family: Montserrat, Arial, s
 }
 .service.featured { background: rgba(255,255,255,.17) !important; border-color: rgba(255,255,255,.42) !important; }
 .service:hover { transform: translateY(-8px) !important; background: rgba(255,255,255,.18) !important; box-shadow: 0 25px 45px rgba(0,0,0,.22); }
-.service > span { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--arquimase-blue); color: #fff; }
-.service .service-open { border-radius: 50% !important; transition: transform .25s ease, background .25s ease; }
+.service > span { display: grid; place-items: center; flex: 0 0 42px; width: 42px; height: 42px; border-radius: 50%; background: var(--arquimase-blue); color: #fff; }
+.service > div { width: 100%; }
+.service h3 { margin: 0 !important; max-width: 13ch; font-size: clamp(2rem, 6vw, 2.8rem) !important; line-height: 1.02 !important; }
+.service > p { grid-column: auto !important; margin: 0 !important; padding: 0 48px 0 0; color: rgba(255,255,255,.88) !important; font-size: .94rem !important; line-height: 1.58 !important; }
+.service .service-open { position: absolute; right: 24px; bottom: 24px; grid-column: auto !important; grid-row: auto !important; border-radius: 50% !important; transition: transform .25s ease, background .25s ease; }
 .service:hover .service-open { background: var(--arquimase-blue); transform: rotate(45deg); }
 
 .project-filters { gap: 9px !important; }
@@ -84,7 +94,7 @@ h1, h2, h3, h4, .button, .nav, .project-more { font-family: Montserrat, Arial, s
   .hero-text, .intro-grid > div > p, .portfolio-intro > p, .clients-copy > p, .contact-form { font-size: 1.09rem; }
   .service h3 { font-size: clamp(1.85rem, 2.1vw, 2.7rem) !important; }
   .service-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-  .service { min-height: 360px; }
+  .service { min-height: 390px; }
   .project { flex-basis: min(34vw, 410px); }
 }
 
