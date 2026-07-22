@@ -11,9 +11,11 @@ const projects = [
 ];
 
 const projectGrid = document.querySelector('#project-grid');
+let displayedProjects = [];
 function renderProjects(filter = 'all') {
   const source = window.arquimaseProjects || projects;
   const visible = filter === 'all' ? source : source.filter(project => project.category === filter);
+  displayedProjects = visible;
   projectGrid.innerHTML = visible.map((project, index) => `
     <article class="project reveal in-view" style="--card-delay:${index * 85}ms">
       <div class="project-image ${project.image || project.coverImage ? 'has-image' : `placeholder p${(index % 3) + 1}`}" ${project.image || project.coverImage ? `style="background-image:url('${project.image || project.coverImage}')"` : ''}>
@@ -21,8 +23,7 @@ function renderProjects(filter = 'all') {
       </div>
       <div class="project-meta"><div><p class="project-type">${project.type}</p><h3>${project.title}</h3></div><p class="project-location">${project.location}</p></div>
       <p class="project-description">${project.description}</p>
-      ${project.format === 'beforeAfter' && project.beforeAfter ? `<div class="before-after"><div><span>Antes</span><img src="${project.beforeAfter.before}" alt="${project.title} antes" /></div><div><span>Después</span><img src="${project.beforeAfter.after}" alt="${project.title} después" /></div></div>${project.beforeAfter.description ? `<p class="transformation">${project.beforeAfter.description}</p>` : ''}` : ''}
-      ${project.format === 'phases' && project.phases?.length ? `<div class="phase-gallery">${project.phases.map(phase => `<article><img src="${phase.image}" alt="${phase.title}" /><h4>${phase.title}</h4><p>${phase.description}</p></article>`).join('')}</div>` : ''}
+      <button class="project-more" data-project-index="${index}">Ver caso completo <span>→</span></button>
     </article>`).join('');
 }
 async function loadBackendContent() {
@@ -39,6 +40,16 @@ const observer = new IntersectionObserver(entries => entries.forEach(entry => { 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('[data-filter]').forEach(item => item.classList.toggle('active', item === button)); renderProjects(button.dataset.filter); }));
+
+const modal = document.querySelector('#project-modal');
+const modalBody = document.querySelector('#modal-body');
+function openProject(index) { const project = displayedProjects[index]; if (!project) return; const image = project.image || project.coverImage || ''; const comparison = project.beforeAfter ? `<div class="modal-comparison"><figure><img src="${project.beforeAfter.before}" alt="Antes de ${project.title}"/><figcaption>Antes</figcaption></figure><figure><img src="${project.beforeAfter.after}" alt="Después de ${project.title}"/><figcaption>Después</figcaption></figure></div>${project.beforeAfter.description ? `<p class="modal-note">${project.beforeAfter.description}</p>` : ''}` : ''; const phases = project.phases?.length ? `<div class="modal-phases">${project.phases.map((phase,i)=>`<article><span>Fase ${i+1}</span><img src="${phase.image}" alt="${phase.title}"/><h4>${phase.title}</h4><p>${phase.description}</p></article>`).join('')}</div>` : ''; modalBody.innerHTML = `<img class="modal-hero" src="${image}" alt="${project.title}"/><p class="project-type">${project.type}</p><h2 id="modal-title">${project.title}</h2><p class="modal-location">${project.location || ''}</p><p class="modal-description">${project.description}</p>${comparison}${phases}`; modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.classList.add('modal-open'); }
+function closeProject(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');}
+projectGrid.addEventListener('click', event => { const button = event.target.closest('.project-more'); if (button) openProject(Number(button.dataset.projectIndex)); });
+document.querySelectorAll('[data-close-modal]').forEach(button=>button.addEventListener('click',closeProject));
+document.addEventListener('keydown', event => { if(event.key==='Escape') closeProject(); });
+document.querySelector('#projects-prev').addEventListener('click',()=>projectGrid.scrollBy({left:-projectGrid.clientWidth*.82,behavior:'smooth'}));
+document.querySelector('#projects-next').addEventListener('click',()=>projectGrid.scrollBy({left:projectGrid.clientWidth*.82,behavior:'smooth'}));
 
 const serviceSelect = document.querySelector('select[name="service"]');
 document.querySelectorAll('.service-open').forEach(button => button.addEventListener('click', () => { serviceSelect.value = button.dataset.service; document.querySelector('#contacto').scrollIntoView({ behavior: 'smooth' }); }));

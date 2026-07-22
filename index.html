@@ -8,9 +8,10 @@
     <title>Arquimase | Construimos lo que imaginas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="portfolio.css" />
+    <link rel="stylesheet" href="modern.css" />
   </head>
   <body>
     <header class="site-header" id="inicio">
@@ -48,14 +49,14 @@
       </section>
 
       <section class="projects section" id="proyectos">
-        <div class="section-heading"><p class="eyebrow">Portafolio de proyectos</p><span>02</span></div>
+        <div class="section-heading section-heading-strong"><p class="eyebrow">Portafolio de proyectos</p><span>02</span></div>
         <div class="portfolio-intro"><h2>Trabajo que habla<br /><em>por sí mismo.</em></h2><p>Esta sección está lista para cargar fotos, categoría, ubicación y descripción de cada proyecto.</p></div>
-        <div class="project-filters" role="group" aria-label="Filtrar proyectos"><button class="active" data-filter="all">Todos</button><button data-filter="turismo">Turismo</button><button data-filter="tratamiento">Plantas de tratamiento</button><button data-filter="remodelacion">Remodelación</button></div>
+        <div class="project-toolbar"><div class="project-filters" role="group" aria-label="Filtrar proyectos"><button class="active" data-filter="all">Todos</button><button data-filter="turismo">Turismo</button><button data-filter="tratamiento">Plantas de tratamiento</button><button data-filter="remodelacion">Remodelación</button></div><div class="carousel-controls" aria-label="Navegar proyectos"><button id="projects-prev" aria-label="Proyecto anterior">←</button><button id="projects-next" aria-label="Proyecto siguiente">→</button></div></div>
         <div id="project-grid" class="project-grid" aria-live="polite"></div>
       </section>
 
       <section class="clients section" id="clientes">
-        <div class="section-heading"><p class="eyebrow">Nuestros clientes</p><span>03</span></div>
+        <div class="section-heading section-heading-strong"><p class="eyebrow">Nuestros clientes</p><span>03</span></div>
         <div class="clients-copy"><h2>Alianzas que<br /><em>construyen futuro.</em></h2><p>Agrega los logos de las empresas, desarrollos e instituciones que han confiado en Arquimase.</p></div>
         <div class="client-grid" aria-label="Espacios para logos de clientes">
           <div class="client-logo">TU LOGO</div><div class="client-logo">TU LOGO</div><div class="client-logo">TU LOGO</div><div class="client-logo">TU LOGO</div><div class="client-logo">TU LOGO</div><div class="client-logo">TU LOGO</div>
@@ -69,6 +70,7 @@
         <form id="contact-form" class="contact-form"><label>Nombre<input required name="name" placeholder="¿Cómo te llamas?" /></label><label>Correo<input required type="email" name="email" placeholder="tu@correo.com" /></label><label>Tipo de proyecto<select name="service"><option value="">Selecciona una especialidad</option><option>Proyecto turístico</option><option>Planta de tratamiento</option><option>Remodelación y construcción</option></select></label><label>Cuéntanos<input name="message" placeholder="¿Qué tienes en mente?" /></label><button class="button" type="submit">Enviar solicitud <span>↗</span></button><p class="form-message" role="status"></p></form>
       </section>
     </main>
+    <div class="project-modal" id="project-modal" aria-hidden="true"><div class="project-modal-backdrop" data-close-modal></div><article class="project-modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" data-close-modal aria-label="Cerrar">×</button><div id="modal-body"></div></article></div>
     <footer><a class="brand" href="#inicio"><img src="assets/arquimase-logo.png" alt="Arquimase" /></a><p>Construimos lo que imaginas.</p><div><a href="#inicio">Instagram</a><a href="#inicio">LinkedIn</a><span>© 2026 Arquimase</span></div></footer>
     <script src="script.js"></script>
   </body>
